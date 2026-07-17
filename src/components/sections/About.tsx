@@ -6,6 +6,7 @@ import {
   GraduationCap,
   Code2,
   Trophy,
+  Sparkles,
 } from "lucide-react";
 
 import Container from "@/components/common/Container";
@@ -16,32 +17,53 @@ export default function About() {
     {
       icon: User,
       title: "Full Stack Developer",
-      description: "Building responsive and scalable web applications.",
+      description: "Building fast, responsive and scalable web applications with modern technologies.",
     },
     {
       icon: GraduationCap,
       title: "Computer Science Student",
-      description: "B.Tech CSE | GGSIPU",
+      description: "B.Tech CSE undergraduate focused on software engineering and practical development.",
     },
     {
       icon: Code2,
       title: "Problem Solver",
-      description: "Practicing Data Structures & Algorithms every day.",
+      description: "Strengthening logical thinking through Data Structures & Algorithms every day.",
     },
     {
       icon: Trophy,
       title: "Career Goal",
-      description: "Preparing for Software Engineering internships.",
+      description: "Preparing for software engineering internships while building impactful projects.",
+    },
+  ];
+
+  const stats = [
+    {
+      value: about.projects,
+      label: "Projects",
+    },
+    {
+      value: about.experience,
+      label: "Years Learning",
+    },
+    {
+      value: about.cgpa,
+      label: "Latest SGPA",
     },
   ];
 
   return (
     <section
       id="about"
-      className="relative py-32 bg-[#030712]"
+      className="relative overflow-hidden py-32"
     >
+      {/* Background */}
+
+      <div className="absolute inset-0 bg-[#030712]" />
+
+      <div className="absolute left-1/2 top-24 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[140px]" />
+
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="relative z-10 grid items-center gap-20 lg:grid-cols-2">
 
           {/* LEFT */}
 
@@ -51,60 +73,47 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <p className="mb-3 text-cyan-400 font-semibold tracking-widest uppercase">
-              About Me
-            </p>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2">
+              <Sparkles className="h-4 w-4 text-cyan-400" />
+              <span className="text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                {about.title}
+              </span>
+            </div>
 
-            <h2 className="mb-6 text-5xl font-bold text-white">
+            <h2 className="max-w-xl text-4xl font-bold leading-tight text-white md:text-5xl">
               {about.subtitle}
             </h2>
 
-            <p className="mb-6 text-lg leading-8 text-slate-400">
-              {about.description1}
-            </p>
-
-            <p className="mb-6 text-lg leading-8 text-slate-400">
-              {about.description2}
-            </p>
-
-            <p className="text-lg leading-8 text-slate-400">
-              {about.description3}
-            </p>
+            <div className="mt-8 space-y-6 text-lg leading-8 text-slate-400">
+              <p>{about.description1}</p>
+              <p>{about.description2}</p>
+              <p>{about.description3}</p>
+            </div>
 
             {/* Stats */}
 
-            <div className="mt-12 grid grid-cols-3 gap-6">
+            <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <motion.div
+                  key={stat.label}
+                  whileHover={{
+                    y: -6,
+                    scale: 1.03,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                  }}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+                >
+                  <h3 className="text-4xl font-bold text-cyan-400">
+                    {stat.value}
+                  </h3>
 
-              <div>
-                <h3 className="text-4xl font-bold text-cyan-400">
-                  {about.projects}
-                </h3>
-
-                <p className="mt-2 text-slate-400">
-                  Projects
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-4xl font-bold text-cyan-400">
-                  {about.experience}
-                </h3>
-
-                <p className="mt-2 text-slate-400">
-                  Years Learning
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-4xl font-bold text-cyan-400">
-                  {about.cgpa}
-                </h3>
-
-                <p className="mt-2 text-slate-400">
-                  Latest SGPA
-                </p>
-              </div>
-
+                  <p className="mt-2 text-sm tracking-wide text-slate-400">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -124,25 +133,33 @@ export default function About() {
                 <motion.div
                   key={card.title}
                   whileHover={{
-                    y: -8,
+                    y: -10,
                     scale: 1.03,
                   }}
                   transition={{
                     duration: 0.3,
                   }}
-                  className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400">
-                    <Icon size={28} />
+                  {/* Glow */}
+
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
                   </div>
 
-                  <h3 className="mb-3 text-xl font-semibold text-white">
-                    {card.title}
-                  </h3>
+                  <div className="relative z-10">
+                    <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-500/20 bg-cyan-500/10 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
+                      <Icon size={30} />
+                    </div>
 
-                  <p className="leading-7 text-slate-400">
-                    {card.description}
-                  </p>
+                    <h3 className="mb-3 text-xl font-semibold text-white">
+                      {card.title}
+                    </h3>
+
+                    <p className="leading-7 text-slate-400">
+                      {card.description}
+                    </p>
+                  </div>
                 </motion.div>
               );
             })}

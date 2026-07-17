@@ -90,6 +90,7 @@
   }
 }
 
+
 body {
   min-height: 100vh;
   color: var(--foreground);
@@ -152,4 +153,37 @@ html {
 ::selection {
   background: #2563eb;
   color: white;
+}
+::selection {
+  background: rgb(34 211 238 / 0.35);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgb(34 211 238 / 0.35);
+  color: white;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #22d3ee,
+    #0ea5e9
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    #67e8f9,
+    #38bdf8
+  );
 }

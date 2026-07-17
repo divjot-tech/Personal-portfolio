@@ -1,23 +1,27 @@
 const navigation = [
   {
     id: "about",
-    label: "About",
+    name: "About",
   },
   {
     id: "skills",
-    label: "Skills",
+    name: "Skills",
   },
   {
     id: "projects",
-    label: "Projects",
+    name: "Projects",
   },
   {
     id: "education",
-    label: "Education",
+    name: "Education",
+  },
+  {
+    id: "certifications",
+    name: "Certificates",
   },
   {
     id: "contact",
-    label: "Contact",
+    name: "Contact",
   },
 ];
 

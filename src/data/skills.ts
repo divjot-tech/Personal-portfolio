@@ -54,6 +54,20 @@ const skills = [
   },
 
   {
+    category: "AI Tools",
+    items: [
+      "ChatGPT",
+      "Claude",
+      "GitHub Copilot",
+      "Google Gemini",
+      "Perplexity AI",
+      "Cursor AI",
+      "v0 by Vercel",
+      "Lovable",
+    ],
+  },
+
+  {
     category: "Currently Learning",
     items: [
       "Data Structures & Algorithms",
